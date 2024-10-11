@@ -56,6 +56,7 @@ def ask():
     Handle user input and generate a response from the chatbot.
     """
     user_input = request.json.get("user_input")
+    print(f"asking bot.. {user_input}")
   
     # Retrieve the conversation history from the session
     if "conversation_history" not in session:
@@ -76,6 +77,7 @@ def ask():
     # Save the updated conversation history back to the session
     session["conversation_history"] = chatbot.conversation_manager.get_history()
     session["conversation_information"] = chatbot.conversation_manager.get_information()
+    print("answer retrieved..")
     return jsonify({"response": response})
 
 

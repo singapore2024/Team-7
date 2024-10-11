@@ -109,8 +109,8 @@ export default function ProfilePage() {
           <div className="mt-10 space-y-4">
             <h3 className="text-xl font-semibold text-gray-800">Review</h3>
             <p className="text-gray-600">
-              John is a reliable and hardworking individual who consistently delivers quality work. 
-              He communicates well and always meets deadlines.
+              John is a reliable seller. 
+              He communicates well and always delivers fresh produce.
             </p>
           </div>
         </div>

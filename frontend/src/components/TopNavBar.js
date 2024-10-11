@@ -39,6 +39,16 @@ const TopNavBar = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
+          <Link className="font-bold" style={{ color: "#85be40" }} href="/chatbot">
+            Chatbot
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link className="font-bold" style={{ color: "#85be40" }} href="/education">
+            Education
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
           <Link
             className="font-bold"
             style={{ color: "#85be40" }}

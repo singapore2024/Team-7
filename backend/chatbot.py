@@ -107,23 +107,23 @@ class ChatBot:
         return llm_response.content
 
 
-def main():
-    llm_genr = ChatOpenAI(api_key=OPENAI_API_KEY, model='gpt-3.5-turbo', temperature=0.3)
+# def main():
+#     llm_genr = ChatOpenAI(api_key=OPENAI_API_KEY, model='gpt-3.5-turbo', temperature=0.3)
 
-    bot = ChatBot(llm_genr)
+#     bot = ChatBot(llm_genr)
 
-    while True:
-        print("\n")
-        user_input = input("You: ")
-        if user_input.lower() in ["exit", "quit"]:
-            break
-        print("\n~~~~~~~~~~~~~~~~~~~~~~RESPONSE~~~~~~~~~~~~~~~~~~~~~~")
-        llm_response = bot.ask(user_input)
-        print(f"AI: {llm_response}")
-        print("\n")
+#     while True:
+#         print("\n")
+#         user_input = input("You: ")
+#         if user_input.lower() in ["exit", "quit"]:
+#             break
+#         print("\n~~~~~~~~~~~~~~~~~~~~~~RESPONSE~~~~~~~~~~~~~~~~~~~~~~")
+#         llm_response = bot.ask(user_input)
+#         print(f"AI: {llm_response}")
+#         print("\n")
 
-    return
+#     return
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
