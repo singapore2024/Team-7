@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1",
+    "title": "Orange",
+    "img": "/images/vege.jpg",
+    "price": "$5.50",
+    "purpose": "exchange",
+    "time_of_harvest": "2024-09-15",
+    "time_posted": "2024-10-10",
+    "request_for_trade": "10 oranges",
+    "user": "User123",
+    "contact_info": "user123@example.com"
+  },
+  {
+    "id": "2",
+    "title": "Tangerine",
+    "img": "/images/vege.jpg",
+    "price": "$3.00",
+    "purpose": "buy",
+    "time_of_harvest": "2024-09-20",
+    "time_posted": "2024-10-09",
+    "request_for_trade": null,
+    "user": "User456",
+    "contact_info": "user456@example.com"
+  },
+  {
+    "id": "3",
+    "title": "Raspberry",
+    "img": "/images/vege.jpg",
+    "price": "$10.00",
+    "purpose": "sell",
+    "time_of_harvest": "2024-09-25",
+    "time_posted": "2024-10-08",
+    "request_for_trade": null,
+    "user": "User789",
+    "contact_info": "user789@example.com"
+  },
+  {
+    "id": "4",
+    "title": "Lemon",
+    "img": "/images/vege.jpg",
+    "price": "$5.30",
+    "purpose": "share",
+    "time_of_harvest": "2024-09-18",
+    "time_posted": "2024-10-07",
+    "request_for_trade": null,
+    "user": "User321",
+    "contact_info": "user321@example.com"
+  },
+  {
+    "id": "5",
+    "title": "Avocado",
+    "img": "/images/vege.jpg",
+    "price": "$15.70",
+    "purpose": "exchange",
+    "time_of_harvest": "2024-09-30",
+    "time_posted": "2024-10-06",
+    "request_for_trade": "5 avocados",
+    "user": "User654",
+    "contact_info": "user654@example.com"
+  },
+  {
+    "id": "6",
+    "title": "Apple",
+    "img": "/images/vege.jpg",
+    "price": "$2.50",
+    "purpose": "exchange",
+    "time_of_harvest": "2024-09-28",
+    "time_posted": "2024-10-05",
+    "request_for_trade": "15 apples",
+    "user": "User987",
+    "contact_info": "user987@example.com"
+  },
+  {
+    "id": "7",
+    "title": "Grapefruit",
+    "img": "/images/vege.jpg",
+    "price": "$4.20",
+    "purpose": "buy",
+    "time_of_harvest": "2024-09-22",
+    "time_posted": "2024-10-04",
+    "request_for_trade": null,
+    "user": "User222",
+    "contact_info": "user222@example.com"
+  },
+  {
+    "id": "8",
+    "title": "Pineapple",
+    "img": "/images/vege.jpg",
+    "price": "$8.00",
+    "purpose": "sell",
+    "time_of_harvest": "2024-09-26",
+    "time_posted": "2024-10-03",
+    "request_for_trade": null,
+    "user": "User888",
+    "contact_info": "user888@example.com"
+  }
+]
