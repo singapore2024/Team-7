@@ -15,11 +15,11 @@ export default function RequirementsForm() {
   return (
     <div className="container mx-auto py-10">
       <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
-        <h2 className="text-2xl font-bold text-center mb-6">Requirements Form</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 text-[#85be40]">Requirements Form</h2>
         <form className="space-y-4">
           {/* Name */}
           <div className="space-y-2">
-            <label htmlFor="name" className="block font-medium text-gray-700">
+            <label htmlFor="name" className="block font-medium text-[#85be40]">
               Name of Product
             </label>
             <input
@@ -32,7 +32,7 @@ export default function RequirementsForm() {
 
           {/* Quantity */}
           <div className="space-y-2">
-            <label htmlFor="quantity" className="block font-medium text-gray-700">
+            <label htmlFor="quantity" className="block font-medium text-[#85be40]">
               Quantity
             </label>
             <input
@@ -45,7 +45,7 @@ export default function RequirementsForm() {
 
           {/* Image Upload */}
           <div className="space-y-2">
-            <label htmlFor="imageUpload" className="block font-medium text-gray-700">
+            <label htmlFor="imageUpload" className="block font-medium text-[#85be40]">
               Upload Image
             </label>
             <input
@@ -62,7 +62,7 @@ export default function RequirementsForm() {
 
           {/* Contact (Phone Number) */}
           <div className="space-y-2">
-            <label htmlFor="contact" className="block font-medium text-gray-700">
+            <label htmlFor="contact" className="block font-medium text-[#85be40]">
               Contact (Phone Number)
             </label>
             <input
@@ -75,7 +75,7 @@ export default function RequirementsForm() {
 
           {/* Preparation Steps */}
           <div className="space-y-2">
-            <label htmlFor="preparationSteps" className="block font-medium text-gray-700">
+            <label htmlFor="preparationSteps" className="block font-medium text-[#85be40]">
               Preparation Steps
             </label>
             <textarea
@@ -87,7 +87,7 @@ export default function RequirementsForm() {
 
           {/* Date Harvested */}
           <div className="space-y-2">
-            <label htmlFor="dateHarvested" className="block font-medium text-gray-700">
+            <label htmlFor="dateHarvested" className="block font-medium text-[#85be40]">
               Date Harvested
             </label>
             <input
@@ -99,7 +99,7 @@ export default function RequirementsForm() {
 
           {/* Date Posted */}
           <div className="space-y-2">
-            <label htmlFor="datePosted" className="block font-medium text-gray-700">
+            <label htmlFor="datePosted" className="block font-medium text-[#85be40]">
               Date Posted
             </label>
             <input
@@ -108,6 +108,23 @@ export default function RequirementsForm() {
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#85be40] focus:border-[#85be40]"
             />
           </div>
+
+          <div className="space-y-2">
+            <label htmlFor="transactionType" className="block font-medium text-[#85be40]">
+              Transaction Type
+            </label>
+            <select
+              id="transactionType"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#85be40] focus:border-[#85be40]"
+            >
+              <option value="">Select transaction type</option>
+              <option value="exchange">Exchange</option>
+              <option value="sell">Sell</option>
+              <option value="buy">Buy</option>
+              <option value="buy">Donate</option>
+            </select>
+          </div>
+
 
           {/* Submit Button */}
           <button
