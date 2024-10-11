@@ -1,10 +1,11 @@
+"use client";
 import {
   Card,
   CardBody,
   CardFooter,
   Image,
-  Tab,
   Tabs,
+  Tab,
 } from "@nextui-org/react";
 
 const Market = () => {
@@ -92,15 +93,13 @@ const Market = () => {
   ];
   return (
     <div>
-      <h1>Market</h1>
-      <Tabs aria-label="Tabs sizes">
-        <Tab key="photos" title="Photos" />
-        <Tab key="music" title="Music" />
-        <Tab key="videos" title="Videos" />
+      <h1>Market Test</h1>
+      <Tabs>
+        <Tab />
       </Tabs>
       <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
         {list.map((item, index) => (
-          <Card shadow="sm" key={index}>
+          <Card key={index} className="bg-white shadow-lg rounded-lg">
             <CardBody className="overflow-visible p-0">
               <Image
                 shadow="sm"
