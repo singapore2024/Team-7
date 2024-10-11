@@ -1,16 +1,7 @@
 "use client";
 import { useState } from "react";
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Image,
-  Tabs,
-  Tab,
-  Button,
-  Link,
-  useDisclosure,
-} from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Image, Switch } from "@nextui-org/react";
+import toast, { Toaster } from "react-hot-toast";
 import Items from "../../../../../data/Items.json";
 import MyItems from "../../../../../data/MyItems.json";
 
@@ -23,10 +14,18 @@ const Item = ({ params }) => {
   const handleOffer = (itm, qty) => {
     const offerString = `${itm} (${qty})`;
     setOffers((prevOffers) => [...prevOffers, offerString]);
+    toast(`An offer has been made: ${itm} (${qty})`);
+  };
+
+  const [isToggled, setIsToggled] = useState(false);
+
+  const handleToggle = () => {
+    setIsToggled((prevState) => !prevState);
   };
 
   return (
     <div className="container mx-auto py-10">
+      <Toaster position="bottom-right" />
       <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
         <h2 className="text-2xl font-bold text-center mb-6 text-[#85be40]">
           {foodItem.title}
@@ -49,7 +48,7 @@ const Item = ({ params }) => {
         </div>
         <div className="pb-2">Date of Harvest: {foodItem.time_of_harvest}</div>
 
-        {/* {foodItem.purpose !== "share" && (
+        {foodItem.purpose !== "share" && !isToggled && (
           <div className="space-y-4">
             <h3 className="mt-4 font-medium text-lg">
               Offer my items for trade:
@@ -71,9 +70,9 @@ const Item = ({ params }) => {
               </div>
             ))}
           </div>
-        )} */}
+        )}
 
-        {foodItem.purpose !== "share" && (
+        {foodItem.purpose !== "share" && isToggled && (
           <div>
             <h3 className="mt-4 font-medium text-lg">Offers:</h3>
             <div className="space-y-4">
@@ -95,6 +94,12 @@ const Item = ({ params }) => {
           </div>
         )}
       </div>
+      <Switch
+        defaultSelected={isToggled} // Set the initial state
+        onChange={handleToggle} // Call the handler on toggle
+        aria-label="Automatic updates"
+      />
+      <p>{isToggled ? "Seller" : "Buyer"}</p>
     </div>
   );
 };
