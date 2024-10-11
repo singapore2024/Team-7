@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
+import NavBar from "../components/NavBar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
