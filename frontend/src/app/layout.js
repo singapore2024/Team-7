@@ -2,8 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
 
-import TopNavBar from "@/components/TopNavBar";
-
+import TopNavBar from "../components/TopNavBar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
