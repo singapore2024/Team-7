@@ -14,11 +14,11 @@ const TopNavBar = () => {
         <p className="font-bold text-inherit">Harvest Hub</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
+        {/* <NavbarItem>
           <Link className="font-bold" style={{ color: "#85be40" }} href="/grow">
             Grow
           </Link>
-        </NavbarItem>
+        </NavbarItem> */}
         <NavbarItem>
           <Link
             className="font-bold"
@@ -28,16 +28,16 @@ const TopNavBar = () => {
             Market
           </Link>
         </NavbarItem>
-        <NavbarItem>
+        {/* <NavbarItem>
           <Link className="font-bold" style={{ color: "#85be40" }} href="/blog">
             Blog
           </Link>
-        </NavbarItem>
-        <NavbarItem>
+        </NavbarItem> */}
+        {/* <NavbarItem>
           <Link className="font-bold" style={{ color: "#85be40" }} href="/">
             Dashboard
           </Link>
-        </NavbarItem>
+        </NavbarItem> */}
         <NavbarItem>
           <Link className="font-bold" style={{ color: "#85be40" }} href="/chatbot">
             Chatbot
@@ -48,6 +48,9 @@ const TopNavBar = () => {
             Education
           </Link>
         </NavbarItem>
+        
+      </NavbarContent>
+      <NavbarContent justify="end">
         <NavbarItem>
           <Link
             className="font-bold"
@@ -57,8 +60,6 @@ const TopNavBar = () => {
             Profile
           </Link>
         </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
           <Link
             className="font-bold"
