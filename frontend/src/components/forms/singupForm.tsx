@@ -1,6 +1,7 @@
 "use client"
 import { Input } from '@nextui-org/input';
-import { Button } from '@nextui-org/react';
+import { Button, Switch } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 // Define types for form fields
@@ -9,41 +10,64 @@ interface FormData {
   lastName: string;
   email: string;
   number: string;
-  // need to change this
-  certification: string;
+  
 }
-
 const SignupForm: React.FC = () => {
+  const [role, setRole] = useState<string>("Producer")
+  const router = useRouter();
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
     lastName: '',
     email: '',
     number: '',
-    certification:''
   });
 
   // Handle input changes
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    
     const { name, value } = event.target;
     setFormData({
       ...formData,
       [name]: value,
     });
-    console.log(name)
-    console.log(value)
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); 
-    console.log("HELLO")
+    router.push("/market");
   };
+  const switchhandler = ()=>{
+    if(role=="Producer"){
+      setRole("Consumer");
+    }else{
+      setRole("Producer");
+    }
+  }
 
   return (
-    <div className='flex flex-col justify-center items-center'>
-      <div className='text-6xl mb-10'>REGISTRATION</div>
+    <div className='flex flex-col justify-center items-center h-[100vh] w-[100vw]' 
+      style={{
+        backgroundImage:"url('/images/farmer2.jpg')"
+      }}>
+      <div className='flex flex-col text-center p-10 w-[500px]'
+        style={{
+          borderRadius:50,
+          backgroundColor: 'rgba(211, 211, 211, 0.7)'
+        }}>
+      <div className='text-6xl mb-10 text-white'
+        style={{
+          letterSpacing:"3px"
+        }}>Registration</div>
+        <div className='pb-5 flex justify-end text-white'>
+          <Switch className='text-white' onValueChange={switchhandler}>
+            <div className='text-white'>
+              {role}
+            </div>
+          </Switch>
+        </div>
       <form onSubmit={handleSubmit}>
         <div className='flex pb-5'> 
-          <div className='w-40'>First Name:</div>
+          <div className='w-40 text-white'>First Name:</div>
           <Input
             type="text"
             id="firstName"
@@ -54,7 +78,7 @@ const SignupForm: React.FC = () => {
           />
         </div>
         <div className='flex pb-5'> 
-          <div className='w-40'>Last Name:</div>
+          <div className='w-40 text-white'>Last Name:</div>
           <Input
             type="text"
             id="lastName"
@@ -66,7 +90,7 @@ const SignupForm: React.FC = () => {
         </div>
           <div className='flex pb-5'> 
 
-          <div className='w-40'>Email:</div>
+          <div className='w-40 text-white'>Email:</div>
           <Input
             type="email"
             id="email"
@@ -78,7 +102,7 @@ const SignupForm: React.FC = () => {
         </div>
           <div className='flex pb-5'> 
 
-          <div className='w-40'>Number:</div>
+          <div className='w-40 text-white'>Phone Number:</div>
           <Input
             // type="number"
             errorMessage="Please enter a valid phone number"
@@ -89,22 +113,23 @@ const SignupForm: React.FC = () => {
             required
           />
         </div>
-          <div className='flex pb-5'> 
-
-          <div className='w-40'>Certification:</div>
-          <Input
-            type="certification"
-            id="certification"
-            name="certification"
-            value={formData.certification}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
+        {role==="Consumer" && 
+        <div className='flex pb-5'> 
+        <div className='w-40 text-white'>Certification:</div>
+        <Input
+          type="file"
+          id="certification"
+          name="certification"
+          onChange={handleInputChange}
+          required
+        />
+      </div>}
+        
         <div className="justify-end mt-5 flex">
           <Button type="submit">Submit</Button>
         </div>
       </form>
+      </div>
     </div>
   );
 };
