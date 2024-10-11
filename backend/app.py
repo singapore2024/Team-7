@@ -46,7 +46,7 @@ import routes  # Assuming your routes are defined in a separate file
 
 
 # Initialize the LLM
-llm_genr = ChatOpenAI(api_key=OPENAI_API_KEY, model='gpt-3.5-turbo', temperature=0.3)
+llm_genr = ChatOpenAI(api_key=OPENAI_API_KEY, model='gpt-4o', temperature=0.3)
 chatbot = ChatBot(llm_genr)
 
 
