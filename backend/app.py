@@ -9,8 +9,7 @@ from pathlib import Path
 import os
 
 from langchain_openai import ChatOpenAI
-from education.chat_bot import ChatBot  # Import your ChatBot class here
-
+from chatbot import ChatBot
 
 # Load environment variables from .env
 env_path = Path(__file__).resolve().parents[1] / ".env"
