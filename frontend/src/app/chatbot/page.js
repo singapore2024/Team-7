@@ -1,4 +1,4 @@
-"use client"; // This marks the component as a Client Component
+"use client"; 
 
 import { useState } from 'react';
 
@@ -7,45 +7,43 @@ export default function EducationPage() {
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Predefined questions and simulated answers
+  // Predefined questions
   const predefinedQuestions = [
-    { question: "How to grow fatter plants?", query: "grow fatter plants", answer: "To grow fatter plants, ensure they have the right nutrients, adequate water, and plenty of sunlight." },
-    { question: "What is the best soil for growing tomatoes?", query: "best tomato soil", answer: "The best soil for growing tomatoes is rich in organic matter with good drainage." },
-    { question: "How often should I water my plants?", query: "how often to water plants", answer: "You should water your plants when the top inch of soil feels dry hello i amd just filing the word count Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
-    { question: "How much sunlight do herbs like basil need?", query: "amount of sunlight needed for basil", answer: "Basil needs at least 6 hours of sunlight each day." }
+    { question: "How to grow fatter plants?", query: "grow fatter plants" },
+    { question: "What is the best soil for growing tomatoes?", query: "best tomato soil" },
+    { question: "How often should I water my plants?", query: "how often to water plants" },
+    { question: "How much sunlight do herbs like basil need?", query: "amount of sunlight needed for basil" }
   ];
 
   // Handle user input submission
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!input) return;
     setLoading(true);
-
-    // Simulate response based on user input
-    const foundQuestion = predefinedQuestions.find(q => q.question.toLowerCase() === input.toLowerCase());
-
-    if (foundQuestion) {
-      setResponse(foundQuestion.answer);
-    } else {
-      setResponse("I'm sorry, I don't have an answer for that.");
-    }
-
+    const response = await fetch('/api/education', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ question: input }),
+    });
+    const data = await response.json();
+    setResponse(data.answer);
     setLoading(false);
   };
 
   // Handle predefined question click
-  const handlePredefinedQuestion = (query, question) => {
+  const handlePredefinedQuestion = async (query, question) => {
     setInput(question); // Set the input to the predefined question
     setLoading(true);
-
-    // Simulate response based on predefined question
-    const foundQuestion = predefinedQuestions.find(q => q.query === query);
-
-    if (foundQuestion) {
-      setResponse(foundQuestion.answer);
-    } else {
-      setResponse("I'm sorry, I don't have an answer for that.");
-    }
-
+    const response = await fetch('/api/education', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ question: query }),
+    });
+    const data = await response.json();
+    setResponse(data.answer);
     setLoading(false);
   };
 
@@ -87,7 +85,7 @@ export default function EducationPage() {
 
         {/* Display Response */}
         {response && (
-          <div className="mt-6 bg-gray-100 p-4 rounded-lg shadow-md max-h-80 overflow-y-auto">
+          <div className="mt-6 bg-gray-100 p-4 rounded-lg shadow-md">
             <h3 className="font-semibold">Answer:</h3>
             <p>{response}</p>
           </div>
