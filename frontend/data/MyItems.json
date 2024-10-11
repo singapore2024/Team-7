@@ -1,0 +1,41 @@
+[
+  {
+    "id": "21",
+    "title": "Orange",
+    "quantity": "10",
+    "img": "/images/vege.jpg",
+    "price": "10 apples",
+    "purpose": "exchange",
+    "time_of_harvest": "2024-09-15",
+    "time_posted": "2024-10-10",
+    "request_for_trade": "10 oranges",
+    "user": "User1",
+    "contact_info": "User1@example.com"
+  },
+  {
+    "id": "22",
+    "title": "Tangerine",
+    "quantity": "10",
+    "img": "/images/vege.jpg",
+    "price": "$3.00",
+    "purpose": "buy",
+    "time_of_harvest": "2024-09-20",
+    "time_posted": "2024-10-09",
+    "request_for_trade": null,
+    "user": "User1",
+    "contact_info": "User1@example.com"
+  },
+  {
+    "id": "23",
+    "title": "Raspberry",
+    "quantity": "10",
+    "img": "/images/vege.jpg",
+    "price": "$10.00",
+    "purpose": "buy",
+    "time_of_harvest": "2024-09-25",
+    "time_posted": "2024-10-08",
+    "request_for_trade": null,
+    "user": "User1",
+    "contact_info": "User1@example.com"
+  }
+]

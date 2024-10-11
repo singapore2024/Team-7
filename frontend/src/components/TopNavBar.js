@@ -9,44 +9,56 @@ import {
 
 const TopNavBar = () => {
   return (
-    <Navbar position="fixed" style={{ backgroundColor: "#85be40" }}>
+    <Navbar position="fixed" style={{ backgroundColor: "#fdfefb" }}>
       <NavbarBrand>
-        <p className="font-bold text-inherit ">GMDT</p>
+        <p className="font-bold text-inherit">Urban Harvest</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="/grow">
+          <Link className="font-bold" style={{ color: "#85be40" }} href="/grow">
             Grow
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/market">
+          <Link
+            className="font-bold"
+            style={{ color: "#85be40" }}
+            href="/market"
+          >
             Market
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/blog">
+          <Link className="font-bold" style={{ color: "#85be40" }} href="/blog">
             Blog
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/">
+          <Link className="font-bold" style={{ color: "#85be40" }} href="/">
             Dashboard
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/profile">
+          <Link
+            className="font-bold"
+            style={{ color: "#85be40" }}
+            href="/profile"
+          >
             Profile
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link className="font-bold" style={{ color: "#85be40" }} href="#">
+            Login
+          </Link>
         </NavbarItem>
         <NavbarItem>
           <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
+            <span className="font-bold" style={{ color: "#85be40" }}>
+              Sign Up
+            </span>
           </Button>
         </NavbarItem>
       </NavbarContent>
