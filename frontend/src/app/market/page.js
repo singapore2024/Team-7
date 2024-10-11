@@ -7,6 +7,8 @@ import {
   Tabs,
   Tab,
   Button,
+  Link,
+  useDisclosure,
 } from "@nextui-org/react";
 
 const Market = () => {
@@ -45,8 +47,18 @@ const Market = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
-        <h1 className="text-left">Market</h1>
-        <Button color="primary">Add</Button>
+        <h2 className="text-2xl font-bold text-left text-[#85be40]">
+          Requirements Form
+        </h2>
+        <Button
+          href="/market/add"
+          as={Link}
+          color="primary"
+          showAnchorIcon
+          variant="solid"
+        >
+          Add
+        </Button>
       </div>
       <Tabs aria-label="Options">
         <Tab key="exchange" title="Exchange">

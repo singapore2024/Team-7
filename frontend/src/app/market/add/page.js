@@ -15,7 +15,7 @@ export default function RequirementsForm() {
   return (
     <div className="container mx-auto py-10">
       <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
-        <h2 className="text-2xl font-bold text-center mb-6 text-[#85be40]">Requirements Form</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 text-[#85be40]">Add Item</h2>
         <form className="space-y-4">
           {/* Name */}
           <div className="space-y-2">
