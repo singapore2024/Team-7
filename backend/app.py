@@ -10,6 +10,7 @@ import os
 
 from langchain_openai import ChatOpenAI
 from chatbot import ChatBot
+Session
 
 # Load environment variables from .env
 env_path = Path(__file__).resolve().parents[1] / ".env"
