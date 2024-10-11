@@ -110,6 +110,5 @@ whois==1.20240129.2
 widgetsnbextension==4.0.9
 openai
 langchain
-langchain_openai
-langchain_core
 python-dotenv
+flask_session
