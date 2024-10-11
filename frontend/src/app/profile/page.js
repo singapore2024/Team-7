@@ -1,29 +1,16 @@
 "use client"
 
 import Image from "next/image"
-import { CameraIcon } from "lucide-react"
 
 export default function ProfilePage() {
   return (
     <div className="container mx-auto py-10">
       <div className="max-w-3xl mx-auto bg-white shadow-md rounded-lg">
         <div className="bg-[#85be40] text-white rounded-t-lg p-6">
-          <div className="flex items-center space-x-4">
-            <div className="relative">
-              <Image
-                src="/placeholder.svg?height=100&width=100"
-                alt="Profile picture"
-                width={100}
-                height={100}
-                className="rounded-full border-4 border-white"
-              />
-              <button className="absolute bottom-0 right-0 p-2 bg-gray-200 rounded-full">
-                <CameraIcon className="h-4 w-4 text-black" />
-              </button>
-            </div>
+          <div className="flex items-center justify-center space-x-4"> {/* Center content */}
             <div>
-              <h2 className="text-2xl font-bold">John Doe</h2>
-              <p className="text-green-100">@johndoe</p>
+              <h2 className="text-2xl font-bold text-center">John Doe</h2> {/* Center text */}
+              <p className="text-green-100 text-center">@johndoe</p> {/* Center text */}
             </div>
           </div>
         </div>
@@ -65,6 +52,18 @@ export default function ProfilePage() {
                 type="email"
                 id="email"
                 placeholder="john.doe@example.com"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#85be40] focus:border-[#85be40]"
+              />
+            </div>
+            {/* Added phone number section */}
+            <div className="space-y-2">
+              <label htmlFor="phone" className="block font-medium text-gray-700">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="+65 99999999"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#85be40] focus:border-[#85be40]"
               />
             </div>
