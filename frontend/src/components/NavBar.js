@@ -7,7 +7,7 @@ import {
   Button,
 } from "@nextui-org/react";
 
-const NavBar = () => {
+const TopNavBar = () => {
   return (
     <Navbar position="static" color="blue">
       <NavbarBrand>
@@ -44,4 +44,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default TopNavBar;
