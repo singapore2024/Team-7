@@ -22,13 +22,11 @@ const Market = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold text-left text-[#85be40]">
-          Requirements Form
-        </h2>
+        <h2 className="text-2xl font-bold text-left text-[#85be40]">Market</h2>
         <Button
           href="/market/add"
           as={Link}
-          color="primary"
+          style={{ backgroundColor: "#85be40", color: "#ffffff" }}
           showAnchorIcon
           variant="solid"
         >

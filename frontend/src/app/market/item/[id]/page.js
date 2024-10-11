@@ -49,7 +49,7 @@ const Item = ({ params }) => {
         </div>
         <div className="pb-2">Date of Harvest: {foodItem.time_of_harvest}</div>
 
-        {foodItem.purpose !== "share" && (
+        {/* {foodItem.purpose !== "share" && (
           <div className="space-y-4">
             <h3 className="mt-4 font-medium text-lg">
               Offer my items for trade:
@@ -71,7 +71,7 @@ const Item = ({ params }) => {
               </div>
             ))}
           </div>
-        )}
+        )} */}
 
         {foodItem.purpose !== "share" && (
           <div>
