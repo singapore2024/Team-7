@@ -1,6 +1,3 @@
-from flask import Flask
-import bcrypt
-
 from flask import Flask, request, jsonify
 from app import db
 
