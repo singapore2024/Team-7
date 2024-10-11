@@ -3,6 +3,7 @@ Chatbot powered by LLM
 """
 import os
 from pathlib import Path
+from typing import List
 from dotenv import load_dotenv
 
 from langchain_core.messages import BaseMessage, AIMessage, HumanMessage
@@ -25,13 +26,37 @@ class ConversationManager:
     A class to store and manage conversation history.
     """
     def __init__(self):
-        self.history = []
+        self.history: List[str] = []
+        self.information: List[str] = []
 
     def add_message(self, msg: BaseMessage):
-        self.history.append(msg)
+        content = msg.content
+        self.history.append(content)
+        if isinstance(msg, AIMessage):
+            self.information.append("AIMessage")
+        elif isinstance(msg, HumanMessage):
+            self.information.append("HumanMessage")
+        else:
+            assert False, "Something went wrong, should not happen!"
+
+    def reconstruct_history(self):
+        messages: List[BaseMessage] = []
+        for content, msg_type in zip(self.history, self.information):
+            if msg_type == "AIMessage":
+                message = AIMessage(content=content)
+            elif msg_type == "HumanMessage":
+                message = HumanMessage(content=content)
+
+            messages.append(
+                message
+            )
+        return messages
 
     def get_history(self):
         return self.history
+
+    def get_information(self):
+        return self.information
 
 
 class ResponseGenerator:
@@ -71,7 +96,7 @@ class ChatBot:
         """
         # Add the user's input to the conversation history
         self.conversation_manager.add_message(HumanMessage(content=user_input))
-        conversation_history = self.conversation_manager.get_history()
+        conversation_history = self.conversation_manager.reconstruct_history()
 
         # Generate response based on current conversation history
         llm_response = self.response_generator.generate(conversation_history)

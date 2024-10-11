@@ -10,7 +10,6 @@ import os
 
 from langchain_openai import ChatOpenAI
 from chatbot import ChatBot
-Session
 
 # Load environment variables from .env
 env_path = Path(__file__).resolve().parents[1] / ".env"
@@ -57,21 +56,26 @@ def ask():
     Handle user input and generate a response from the chatbot.
     """
     user_input = request.json.get("user_input")
-
+  
     # Retrieve the conversation history from the session
     if "conversation_history" not in session:
         session["conversation_history"] = []  # Initialize history if not present
 
+    if "conversation_information" not in session:
+        session["conversation_information"] = []
+
     # Use the conversation history from the session
     conversation_history = session["conversation_history"]
+    conversation_information = session["conversation_information"]
 
     # Add user's input to the conversation history
     chatbot.conversation_manager.history = conversation_history
+    chatbot.conversation_manager.information = conversation_information
     response = chatbot.ask(user_input)
-
+    
     # Save the updated conversation history back to the session
     session["conversation_history"] = chatbot.conversation_manager.get_history()
-
+    session["conversation_information"] = chatbot.conversation_manager.get_information()
     return jsonify({"response": response})
 
 
