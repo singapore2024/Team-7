@@ -9,24 +9,29 @@ import {
 
 const TopNavBar = () => {
   return (
-    <Navbar position="static" color="blue">
+    <Navbar position="fixed" style={{ backgroundColor: "#85be40" }}>
       <NavbarBrand>
-        <p className="font-bold text-inherit ">ACME</p>
+        <p className="font-bold text-inherit ">GMDT</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
+          <Link color="foreground" href="/grow">
+            Grow
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
+          <Link color="foreground" href="/market">
+            Market
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/blog">
+            Blog
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/">
+            Dashboard
           </Link>
         </NavbarItem>
         <NavbarItem>
