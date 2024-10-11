@@ -19,6 +19,13 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
 
+# def registerUser(username, email, password, role)
+db = SQLAlchemy(app)  # Initialize SQLAlchemy here
+bcrypt = Bcrypt(app)
+CORS(app)
+
+from models import User
+
 @app.route("/")
 def hello_world():
     return "<p>Hello, World!</p>"
