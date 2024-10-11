@@ -11,7 +11,7 @@ const TopNavBar = () => {
   return (
     <Navbar position="fixed" style={{ backgroundColor: "#fdfefb" }}>
       <NavbarBrand>
-        <p className="font-bold text-inherit">Urban Harvest</p>
+        <p className="font-bold text-inherit">Harvest Hub</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
@@ -65,16 +65,16 @@ const TopNavBar = () => {
             style={{ color: "#85be40" }}
             href="/Login"
           >
-            Login
+            Logged in
           </Link>
         </NavbarItem>
-        <NavbarItem>
+        {/* <NavbarItem>
           <Button as={Link} color="primary" href="/Signup" variant="flat">
             <span className="font-bold" style={{ color: "#85be40" }}>
               Sign Up
             </span>
           </Button>
-        </NavbarItem>
+        </NavbarItem> */}
       </NavbarContent>
     </Navbar>
   );

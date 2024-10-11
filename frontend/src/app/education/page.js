@@ -5,10 +5,8 @@ export default function EducationPage() {
           <h2 className="text-2xl font-bold text-center mb-6">Learn About Sustainable Gardening</h2>
   
           {/* YouTube Video */}
-        <div className="relative pb-9/16 h-0 overflow-hidden">
-            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+            <div style={{width:'100%'}} className="mt-4">
                 <iframe
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
                     src="https://www.youtube.com/embed/XTMrfLJUcDs"
                     title="Sustainable Gardening Tips"
                     frameBorder="0"
@@ -16,9 +14,6 @@ export default function EducationPage() {
                     allowFullScreen
                 ></iframe>
             </div>
-
-
-          </div>
   
           {/* Informational content */}
           <p className="text-lg mt-4">

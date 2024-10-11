@@ -84,7 +84,7 @@ const Landing = () => {
             marginBottom: "20px",
           }}
         >
-          Welcome to UrbanHarvest
+          Welcome to Harvest Hub
         </motion.h1>
 
         {/* Animated subheading with dynamic colors */}

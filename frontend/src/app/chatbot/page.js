@@ -9,7 +9,7 @@ export default function EducationPage() {
 
   // Predefined questions
   const predefinedQuestions = [
-    { question: "How to grow fatter plants?", query: "grow fatter plants" },
+    { question: "How to grow fatter eggplants?", query: "grow fatter eggplants" },
     { question: "What is the best soil for growing tomatoes?", query: "best tomato soil" },
     { question: "How often should I water my plants?", query: "how often to water plants" },
     { question: "How much sunlight do herbs like basil need?", query: "amount of sunlight needed for basil" }
