@@ -4,7 +4,6 @@ import { NextUIProvider } from "@nextui-org/react";
 
 import TopNavBar from "../components/TopNavBar";
 
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",

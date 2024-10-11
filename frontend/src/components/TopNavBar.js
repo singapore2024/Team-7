@@ -60,12 +60,16 @@ const TopNavBar = () => {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link className="font-bold" style={{ color: "#85be40" }} href="#">
+          <Link
+            className="font-bold"
+            style={{ color: "#85be40" }}
+            href="/Login"
+          >
             Login
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" href="/Signup" variant="flat">
             <span className="font-bold" style={{ color: "#85be40" }}>
               Sign Up
             </span>
