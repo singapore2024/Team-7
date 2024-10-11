@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
       >
         <NextUIProvider>
           <TopNavBar />
-          <main className="container mx-auto pt-4">{children}</main>
+          <main className="container mx-auto pt-4 pb-8">{children}</main>
         </NextUIProvider>
       </body>
     </html>
