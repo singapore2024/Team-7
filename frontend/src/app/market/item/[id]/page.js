@@ -12,24 +12,17 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import Items from "../../../../../data/Items.json";
+import MyItems from "../../../../../data/MyItems.json";
 
 const Item = ({ params }) => {
   const { id } = params;
   const foodItem = Items.find((item) => item.id === id);
 
   const [offers, setOffers] = useState([]);
-  const [inputValue, setInputValue] = useState("");
 
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value); // Update input value state
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent form submission
-    if (inputValue.trim() === "") return; // Prevent adding empty offers
-
-    setOffers((prevOffers) => [...prevOffers, inputValue]); // Add input value to offers
-    setInputValue(""); // Clear the input field
+  const handleOffer = (itm, qty) => {
+    const offerString = `${itm} (${qty})`;
+    setOffers((prevOffers) => [...prevOffers, offerString]);
   };
 
   return (
@@ -55,47 +48,52 @@ const Item = ({ params }) => {
             : null}
         </div>
         <div className="pb-2">Date of Harvest: {foodItem.time_of_harvest}</div>
-        <form onSubmit={handleSubmit} className="space-y-2 pb-4">
-          <div>
-            <label htmlFor="name" className="block font-medium text-[#85be40]">
-              Offer
-            </label>
-            <input
-              type="text"
-              id="name"
-              placeholder="e.g. 10 oranges"
-              value={inputValue} // Bind input value to state
-              onChange={handleInputChange} // Update state on input change
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#85be40] focus:border-[#85be40]"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full px-4 py-2 bg-[#85be40] text-white rounded-md hover:bg-[#85be40]/90 focus:ring-4 focus:ring-[#85be40]/50"
-          >
-            Make offer
-          </button>
-        </form>
 
-        <div>
-          <h3 className="mt-4 font-medium text-lg">Offers:</h3>
+        {foodItem.purpose !== "share" && (
           <div className="space-y-4">
-            {offers.map((offer, index) => (
+            <h3 className="mt-4 font-medium text-lg">
+              Offer my items for trade:
+            </h3>
+            {MyItems.map((item, index) => (
               <div
                 key={index}
                 className="p-4 border border-gray-300 rounded-md shadow-md flex justify-between items-center"
               >
-                <span>{offer}</span>
+                <span>
+                  {item.title} ({item.quantity})
+                </span>
                 <button
-                  //   onClick={() => handleAccept(offer)}
+                  onClick={() => handleOffer(item.title, item.quantity)}
                   className="px-3 py-1 bg-[#85be40] text-white rounded-md hover:bg-[#85be40]/90 focus:ring-4 focus:ring-[#85be40]/50"
                 >
-                  Accept
+                  Offer
                 </button>
               </div>
             ))}
           </div>
-        </div>
+        )}
+
+        {foodItem.purpose !== "share" && (
+          <div>
+            <h3 className="mt-4 font-medium text-lg">Offers:</h3>
+            <div className="space-y-4">
+              {offers.map((offer, index) => (
+                <div
+                  key={index}
+                  className="p-4 border border-gray-300 rounded-md shadow-md flex justify-between items-center"
+                >
+                  <span>{offer}</span>
+                  <button
+                    //   onClick={() => handleAccept(offer)}
+                    className="px-3 py-1 bg-[#85be40] text-white rounded-md hover:bg-[#85be40]/90 focus:ring-4 focus:ring-[#85be40]/50"
+                  >
+                    Accept
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
