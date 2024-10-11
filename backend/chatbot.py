@@ -108,7 +108,7 @@ class ChatBot:
 
 
 # def main():
-#     llm_genr = ChatOpenAI(api_key=OPENAI_API_KEY, model='gpt-3.5-turbo', temperature=0.3)
+#     llm_genr = ChatOpenAI(api_key=OPENAI_API_KEY, model='gpt-4o', temperature=0.2)
 
 #     bot = ChatBot(llm_genr)
 
@@ -119,7 +119,7 @@ class ChatBot:
 #             break
 #         print("\n~~~~~~~~~~~~~~~~~~~~~~RESPONSE~~~~~~~~~~~~~~~~~~~~~~")
 #         llm_response = bot.ask(user_input)
-#         print(f"AI: {llm_response}")
+#         print(f"{llm_response}")
 #         print("\n")
 
 #     return
