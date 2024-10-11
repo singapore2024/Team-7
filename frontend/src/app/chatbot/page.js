@@ -19,15 +19,16 @@ export default function EducationPage() {
   const handleSubmit = async () => {
     if (!input) return;
     setLoading(true);
-    const response = await fetch('/api/education', {
+    const response = await fetch('/ask', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ question: input }),
+      body: JSON.stringify({ user_input: input }),
     });
+
     const data = await response.json();
-    setResponse(data.answer);
+    setResponse(data.response);
     setLoading(false);
   };
 
@@ -35,15 +36,15 @@ export default function EducationPage() {
   const handlePredefinedQuestion = async (query, question) => {
     setInput(question); // Set the input to the predefined question
     setLoading(true);
-    const response = await fetch('/api/education', {
+    const response = await fetch('/ask', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ question: query }),
+      body: JSON.stringify({ user_input: question }),
     });
     const data = await response.json();
-    setResponse(data.answer);
+    setResponse(data.response);
     setLoading(false);
   };
 
