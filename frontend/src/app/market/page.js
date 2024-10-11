@@ -7,6 +7,7 @@ import {
   Tabs,
   Tab,
   Button,
+  useDisclosure,
 } from "@nextui-org/react";
 
 const Market = () => {
