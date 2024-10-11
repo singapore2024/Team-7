@@ -13,7 +13,7 @@ from prompts import SYSTEM_PROMPT
 
 
 # Load the .env file
-env_path = Path(__file__).resolve().parents[1] / ".env"  
+env_path = Path(__file__).resolve().parent / ".env"  
 load_dotenv(dotenv_path=env_path)
 
 # Access your API keys from the environment

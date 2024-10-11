@@ -1,4 +1,6 @@
-
+from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+from flask_cors import CORS
 from flask import Flask, request, jsonify, session
 from flask_session import Session
 from langchain_core.messages import HumanMessage, AIMessage
@@ -17,24 +19,31 @@ load_dotenv(dotenv_path=env_path)
 # Get the API key from .env
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-app = Flask(__name__)
 
-# def registerUser(username, email, password, role)
+# app.py
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'yoursecretkey'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+
+# Initialize extensions
 db = SQLAlchemy(app)  # Initialize SQLAlchemy here
 bcrypt = Bcrypt(app)
 CORS(app)
 
-from models import User
+# Import routes at the end to avoid circular imports
+from models import User  # This should come after db is initialized
+import routes  # Assuming your routes are defined in a separate file
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+# if __name__ == '__main__':
+#     app.run(debug=True)
 
-# Flask app initialization
-app = Flask(__name__)
-app.config["SECRET_KEY"] = "your_secret_key"
-app.config["SESSION_TYPE"] = "filesystem"  # Using filesystem to store session data
-Session(app)
+# <<<<<<< Updated upstream
+# # Flask app initialization
+# app = Flask(__name__)
+# app.config["SECRET_KEY"] = "your_secret_key"
+# app.config["SESSION_TYPE"] = "filesystem"  # Using filesystem to store session data
+
 
 
 # Initialize the LLM
@@ -68,3 +77,25 @@ def ask():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+# @app.route('/registration', methods=['GET', 'POST'])
+# def register():
+#     data = request.json  # assuming JSON data is sent from Next.js
+#     username = data.get('username')
+#     password = data.get('password')
+    
+#     # Check if user already exists
+#     existing_user = User.query.filter_by(username=username).first()
+#     if existing_user:
+#         return jsonify({"message": "User already exists"}), 400
+    
+#     # Hash the password and store the user
+#     hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+#     new_user = User(username=username, password=hashed_password)
+#     db.session.add(new_user)
+#     db.session.commit()
+    
+#     return jsonify({"message": "User registered successfully"}), 201
+
