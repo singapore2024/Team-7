@@ -35,8 +35,13 @@ const TopNavBar = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/education">
+          <Link color="foreground" href="/chatbot">
             AI-Chatbot 
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/education">
+            Education
           </Link>
         </NavbarItem>
         <NavbarItem>
