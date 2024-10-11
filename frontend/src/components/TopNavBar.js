@@ -34,6 +34,11 @@ const TopNavBar = () => {
             Dashboard
           </Link>
         </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/profile">
+            Profile
+          </Link>
+        </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
